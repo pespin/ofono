@@ -1251,10 +1251,11 @@ static void shutdown_destroy(gpointer user_data)
 {
 	struct qmi_device *device = user_data;
 
+	device->shutdown_source = 0;
+
 	if (device->shutdown_destroy)
 		device->shutdown_destroy(device->shutdown_user_data);
 
-	device->shutdown_source = 0;
 }
 
 static gboolean shutdown_callback(gpointer user_data)

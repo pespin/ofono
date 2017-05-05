@@ -132,7 +132,7 @@ static void shutdown_device(struct ofono_modem *modem)
 	qmi_service_unref(data->dms);
 	data->dms = NULL;
 
-	qmi_device_shutdown(data->device, shutdown_cb, modem, NULL);
+	qmi_device_shutdown(data->device, NULL, modem, shutdown_cb);
 }
 
 static void power_reset_cb(struct qmi_result *result, void *user_data)
